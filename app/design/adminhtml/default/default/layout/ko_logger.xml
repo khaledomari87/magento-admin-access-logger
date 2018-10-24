@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <adminhtml_accesslog_index>
+        <reference name="content">
+            <block type="ko_logger/adminhtml_accesslog" name="ko_logger_accesslog" />
+        </reference>
+        <reference name="content">
+            <block type="adminhtml/template" name="accesslog" template="KO/logger/accesslog.phtml" />
+        </reference>
+    </adminhtml_accesslog_index>
+</layout>

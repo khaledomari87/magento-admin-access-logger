@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <KO_Logger>
+            <active>true</active>
+            <codePool>local</codePool>
+        </KO_Logger>
+    </modules>
+</config>

@@ -1,0 +1,111 @@
+<?php
+/* @var Mage_Adminhtml_Block_Template $this */
+?>
+<style type="text/css">
+    .modal {
+        display: none;
+        position: fixed;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+    }
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        height: 80%;
+        position: relative;
+    }
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        width: 18px;
+    }
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .modal-text {
+        width: calc(100% - 18px - 40px);
+        position: absolute;
+        float: left;
+        height: 95%;
+        overflow: auto;
+    }
+</style>
+
+<div id="popup-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p id="popup-modal-text" class="modal-text">Some text in the Modal..</p>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var popupModal = document.getElementById('popup-modal');
+
+    var btn = document.getElementById("myBtn");
+
+    var span = document.getElementsByClassName("close")[0];
+    span.onclick = function() { closePopupModal(); }
+
+    function showPopupModal(html) {
+        document.getElementById('popup-modal-text').innerHTML = html;
+        popupModal.style.display = "flex";
+    }
+    function closePopupModal() {
+        popupModal.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == popupModal) {
+            closePopupModal();
+        }
+    }
+    document.onkeydown = function(evt) {
+        evt = evt || window.event;
+        var isEscape = false;
+        if ("key" in evt) {
+            isEscape = (evt.key == "Escape" || evt.key == "Esc");
+        } else {
+            isEscape = (evt.keyCode == 27);
+        }
+        if (isEscape) {
+            closePopupModal();
+        }
+    };
+    function loadParams(id)
+    {
+        url = <?=json_encode($this->getUrl('*/*/loadparams'))?>;
+        new Ajax.Request(url, {
+            method: 'get',
+            parameters:{
+                id: id
+            },
+            onSuccess: function(response) {
+                showPopupModal('<pre>'+response.responseText+'</pre>');
+            }
+        });
+    }
+</script>
+
+
+
+
+
+
+
+
+
