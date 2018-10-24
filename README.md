@@ -1,5 +1,5 @@
 # Magento Admin Access Logger
-Log all admin actions for Magento 1, relays on "controller_action_predispatch" event.
+Log all admin actions for Magento 1, relies on "controller_action_predispatch" event.
 
 ## Request Logged Data:
 - user_id.
