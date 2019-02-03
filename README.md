@@ -8,7 +8,11 @@ Log all admin actions for Magento 1, relies on "controller_action_predispatch" e
 - controller_name.
 - action_name.
 - parameters.
-- A Cronjob to clean old records.
+
+## Other Features
+- Cronjob to clean old records.
+- Configuration to exclude unwanted request paths.
+- Configuration to exclude unwanted request parameters.
 
 ## Screenshots
 
